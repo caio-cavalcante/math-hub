@@ -1,4 +1,3 @@
-document.getElementById("year").innerHTML = new Date().getFullYear();
 const spanFactorial = document.getElementById("resultFactorial");
 const spanFibonacci = document.getElementById("resultFibonacci");
 const spanPrime = document.getElementById("resultPrime");
@@ -20,16 +19,6 @@ function calcFactorial(numFatorial) {
     }
     updateContentHeight(spanFactorial);
 }
-
-const suffix = (n) => {
-    if (n % 100 >= 11 && n % 100 <= 13) return "th";
-    switch (n % 10) {
-    case 1: return "st";
-    case 2: return "nd";
-    case 3: return "rd";
-    default: return "th";
-    }
-};
 
 function calcFibonacci(numFibonacci) {
     if (numFibonacci < 0 || numFibonacci === "") {
@@ -57,12 +46,14 @@ function calcPrime(numPrime) {
                 break;
             }
         }
-        
-        spanPrime.innerHTML = isPrime ? `${numPrime} is a prime number.` : `${numPrime} is not a prime number.`;
+
+        spanPrime.innerHTML = isPrime ? `<br>${numPrime} is a prime number.` : `<br>${numPrime} is not a prime number.`;
     }
     updateContentHeight(spanPrime);
 }
 
+// TODO: if the number has more than 3 digits, the result will be too long
+//       i.e. (234)² = (200 + 30 + 4)²
 function calcSquare(numSquare) {
     if (numSquare === "") {
         spanSquare.innerHTML = "<br>Please enter a number.";
@@ -86,25 +77,4 @@ function calcSquare(numSquare) {
                             <br>${formatNum(term1 + term2 + term3)}`;
 
     updateContentHeight(spanSquare);
-}
-
-function updateContentHeight(resultSpan) {
-    const contentSection = resultSpan.closest('.content');
-    if (contentSection && contentSection.style.maxHeight) {
-        contentSection.style.maxHeight = contentSection.scrollHeight + "px";
-    }
-}
-
-var coll = document.getElementsByClassName("collapsible");
-
-for (let i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-        }
-    });
 }

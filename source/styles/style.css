@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin: auto;
+    width: 64%;
+}
+
+header {
+    text-align: center;
+}
+
+hr {
+    border: 4px solid black;
+}
+
+#tools {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+#content-container {
+    min-height: 200px;
+}
+
+section {
+    padding: 4px;
+}
+
+.collapseButton {
+    background-color: #777;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    flex: 1;
+    font-size: 20px;
+    max-width: 150px;
+    outline: none;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.active,
+.collapsible:hover {
+    background-color: #aaf;
+}
+
+.content {
+    padding: 20px;
+    background-color: #f1f1f1;
+    border: 4px solid #ddd;
+    border-radius: 4px;
+    font-size: 20px;
+    display: none;
+    text-align: center;
+}
+
+.content.show {
+    display: block;
+}
+
+label {
+    margin-bottom: 12px;
+}
+
+input {
+    border: 4px solid #ddd;
+    border-radius: 4px;
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding: 12px;
+    width: 8%;
+}
+
+span :not(#year) {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.resultButton {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 12px 20px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}

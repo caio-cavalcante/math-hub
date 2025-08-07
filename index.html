@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MathHub</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./source/styles/style.css">
 </head>
 <body>
     <header>
@@ -15,55 +15,60 @@
     </header>
 
     <main id="tools">
-        <button class="collapsible">Factorial</button>
-        <section class="content" id="factorial">
-
-            <label for="numFactorial"> Type the number:
-                <input type="number" id="numFactorial">
-            </label>
-            
-            <button onclick="calcFactorial(numFactorial.value)">Result</button>
-            <span id="resultFactorial"></span>
-        </section>
+        <!-- Button Row -->
+        <div id="button-container">
+            <button class="collapseButton" data-target="factorial">Factorial</button>
+            <button class="collapseButton" data-target="fibonacci">Fibonacci</button>
+            <button class="collapseButton" data-target="prime">Prime</button>
+            <button class="collapseButton" data-target="square">Square</button>
+        </div>
         
-        <button class="collapsible">Fibonacci</button>
-        <section class="content" id="fibonacci">
-
-            <label for="numFibonacci"> Type the number:
-                <input type="number" id="numFibonacci">
-            </label>
+        <!-- Content Area -->
+        <div id="content-container">
+            <section class="content" id="factorial">
+                <label for="numFactorial"> Type the number:
+                    <input type="number" id="numFactorial">
+                </label>
+                
+                <button class="resultButton" onclick="calcFactorial(numFactorial.value)">Result</button>
+                <span id="resultFactorial"></span>
+            </section>
             
-            <button onclick="calcFibonacci(numFibonacci.value)">Result</button>
-            <span id="resultFibonacci"></span>
-        </section>
+            <section class="content" id="fibonacci">
+                <label for="numFibonacci"> Type the number:
+                    <input type="number" id="numFibonacci">
+                </label>
+                
+                <button class="resultButton" onclick="calcFibonacci(numFibonacci.value)">Result</button>
+                <span id="resultFibonacci"></span>
+            </section>
 
-        <button class="collapsible">Prime</button>
-        <section class="content" id="prime">
+            <section class="content" id="prime">
+                <label for="numPrime"> Type the number:
+                    <input type="number" id="numPrime">
+                </label>
+                
+                <button class="resultButton" onclick="calcPrime(numPrime.value)">Result</button>
+                <span id="resultPrime"></span>
+            </section>
 
-            <label for="numPrime"> Type the number:
-                <input type="number" id="numPrime">
-            </label>
-            
-            <button onclick="calcPrime(numPrime.value)">Result</button>
-            <span id="resultPrime"></span>
-        </section>
+            <section class="content" id="square">
+                <label for="numSquare"> Type the number:
+                    <input type="number" id="numSquare">
+                </label>
 
-        <button class="collapsible">Square</button>
-        <section class="content" id="squareVisualization">
-
-            <label for="numSquare"> Type the number:
-                <input type="number" id="numSquare">
-            </label>
-
-            <button onclick="calcSquare(numSquare.value)">Result</button>
-            
-            <span id="resultSquare"></span>
-        </section>
+                <button class="resultButton" onclick="calcSquare(numSquare.value)">Result</button>
+                
+                <span id="resultSquare"></span>
+            </section>
+        </div>
     </main>
 
     <footer>
         <h5>&copy; <span id="year"></span> Caio Cavalcante. All Rights Reserved.</h5>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="./source/scripts/main.js"></script>
+    <script src="./source/scripts/calc.js"></script>
 </body>
 </html>
