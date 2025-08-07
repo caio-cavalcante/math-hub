@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: auto;
+    width: 66%;
+}
+
+header {
+    text-align: center;
+}
+
+hr {
+    border: 1px solid black;
+}
+
+#tools {
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    padding: 5px;
+}
+
+.collapsible {
+    background-color: #777;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    padding: 18px;
+    text-align: left;
+    width: 14%;
+}
+
+.active, .collapsible:hover {
+    background-color: #aaf;
+}
+
+.content {
+    padding: 0 18px;
+    background-color: #f1f1f1;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
