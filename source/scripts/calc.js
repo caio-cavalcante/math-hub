@@ -2,10 +2,13 @@ const spanFactorial = document.getElementById("resultFactorial");
 const spanFibonacci = document.getElementById("resultFibonacci");
 const spanPrime = document.getElementById("resultPrime");
 const spanSquare = document.getElementById("resultSquare");
+const spanTriangle = document.getElementById("resultTriangle");
 
 function calcFactorial(numFatorial) {
-    if (numFatorial < 0 || numFatorial === "") {
-        spanFactorial.innerHTML = "<br>Please enter a positive number."; 
+    cantCalc = lessThanZero(spanFactorial, numFatorial);
+
+    if (cantCalc === true) {
+        return;
     } else if (numFatorial === 0) {
         spanFactorial.innerHTML = "<br>The factorial of 0 is 1.";
     } else {
@@ -21,8 +24,10 @@ function calcFactorial(numFatorial) {
 }
 
 function calcFibonacci(numFibonacci) {
-    if (numFibonacci < 0 || numFibonacci === "") {
-        spanFibonacci.innerHTML = "<br>Please enter a positive number.";
+    cantCalc = lessThanZero(spanFibonacci, numFibonacci);
+
+    if (cantCalc === true) {
+        return;
     } else {
         let result = [0, 1];
 
@@ -35,8 +40,12 @@ function calcFibonacci(numFibonacci) {
 }
 
 function calcPrime(numPrime) {
-    if (numPrime < 2 || numPrime === "") {
-        spanPrime.innerHTML = "<br>Please enter a number greater than 1.";
+    cantCalc = lessThanZero(spanPrime, numPrime);
+
+    if (cantCalc === true) {
+        return;
+    } else if (numPrime < 2) {
+        spanPrime.innerHTML = `<br>${numPrime} is not a prime number.`;
     } else {
         let isPrime = true;
 
@@ -77,4 +86,27 @@ function calcSquare(numSquare) {
                             <br>${formatNum(term1 + term2 + term3)}`;
 
     updateContentHeight(spanSquare);
+}
+
+function calcOneSide(sideA, angleB, angleC) {
+
+}
+
+function calcTwoSide(sideA, sideB, angleC) {
+
+}
+
+function calcThreeSide(sideA, sideB, sideC) {
+    cantCalc = lessThanZero(spanTriangle, sideA, sideB, sideC);
+    if (cantCalc === true) {
+        return;
+    }
+    
+    // needs to be after, so the span doesn't get overwritten
+    triangleExists = checkTriangleExistence(sideA, sideB, sideC);
+    if (triangleExists === false) {
+        return;
+    }
+
+    
 }

@@ -13,6 +13,75 @@ const suffix = (n) => {
     }
 };
 
+function lessThanZero(span, num) {
+    if (num < 0 || num === "") {
+        span.innerHTML = "<br>Please enter a positive number.";
+        return true;
+    }
+    return false;
+}
+
+function lessThanZero(span, num1, num2, num3) {
+    if (num1 < 0 || num1 === "" || num2 < 0 || num2 === "" || num3 < 0 || num3 === "") {
+        span.innerHTML = "<br>Please enter a positive number.";
+        return true;
+    }
+    return false;
+}
+
+function checkTriangleExistence(sideA, sideB, sideC) {
+    if ((sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA)) {
+        return true;
+    } else {
+        spanTriangle.innerHTML = "<br>The triangle does not exist.";
+        return false;
+    }
+}
+
+function showTriangleInput(numSides) {
+    const triangleButton = document.getElementById("triangleButton");
+
+    const triangleInputContainer = document.getElementById("sidesInputContainer");
+    const triangleInput = document.getElementById("sidesInput");
+
+    const sideA = document.getElementById("sideA");
+    const sideB = document.getElementById("sideB");
+    const sideC = document.getElementById("sideC");
+
+    const angleA = document.getElementById("angleA");
+    const angleB = document.getElementById("angleB");
+    const angleC = document.getElementById("angleC");
+
+    const button1 = document.querySelector(".one.side.resultButton");
+    const button2 = document.querySelector(".two.side.resultButton");
+    const button3 = document.querySelector(".three.side.resultButton");
+
+    [sideA, sideB, sideC, 
+    angleA, angleB, angleC,
+    button1, button2, button3].forEach(el => el.style.display = "none");
+    triangleInputContainer.style.display = "";
+
+    if (numSides === "3") {
+        sideA.style.display = "inline-block";
+        sideB.style.display = "inline-block";
+        sideC.style.display = "inline-block";
+        button3.style.display = "inline-block";
+    } else if (numSides === "2") {
+        sideA.style.display = "inline-block";
+        sideB.style.display = "inline-block";
+        angleC.style.display = "inline-block";
+        button2.style.display = "inline-block";
+    } else if (numSides === "1") {
+        sideA.style.display = "inline-block";
+        angleB.style.display = "inline-block";
+        angleC.style.display = "inline-block";
+        button1.style.display = "inline-block";
+    } else {
+        triangleInputContainer.style.display = "none";
+        triangleInput.value = "";
+    }
+}
+
 // collapsible sections - new behavior for single section visibility
 for (let i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function() {
@@ -35,42 +104,4 @@ for (let i = 0; i < coll.length; i++) {
             this.classList.add('active');
         }
     });
-}
-
-function showTriangleInput(numSides) {
-    const triangleInputContainer = document.getElementById("sidesInputContainer");
-    const triangleInput = document.getElementById("sidesInput");
-
-    const sideA = document.getElementById("sideA");
-    const sideB = document.getElementById("sideB");
-    const sideC = document.getElementById("sideC");
-    const angleA = document.getElementById("angleA");
-    const angleB = document.getElementById("angleB");
-    const angleC = document.getElementById("angleC");
-
-    if (numSides === "3") {
-        sideA.style.display = "inline-block";
-        sideB.style.display = "inline-block";
-        sideC.style.display = "inline-block";
-        angleA.style.display = "none";
-        angleB.style.display = "none";
-        angleC.style.display = "none";
-    } else if (numSides === "2") {
-        sideA.style.display = "inline-block";
-        sideB.style.display = "inline-block";
-        sideC.style.display = "none";
-        angleA.style.display = "inline-block";
-        angleB.style.display = "none";
-        angleC.style.display = "none";
-    } else if (numSides === "1") {
-        sideA.style.display = "inline-block";
-        sideB.style.display = "none";
-        sideC.style.display = "none";
-        angleA.style.display = "inline-block";
-        angleB.style.display = "inline-block";
-        angleC.style.display = "none";
-    } else {
-        triangleInputContainer.style.display = "none";
-        triangleInput.value = "";
-    }
 }

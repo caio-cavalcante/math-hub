@@ -106,9 +106,9 @@ select {
     display: none;
 }
 
-span :not(#year) {
+span:not(#year) {
     display: block;
-    margin-bottom: 12px;
+    margin-top: -12px;
 }
 
 .optionsButton,
@@ -120,6 +120,10 @@ span :not(#year) {
     cursor: pointer;
     font-size: 20px;
     padding: 12px 20px;
+}
+
+.side {
+    display: none;
 }
 
 footer {

@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Caio's MathHub!</h1>
+        <h1> <!-- Caio's  --> MathHub!</h1>
         <h3>Fun math tools to help you.</h3>
         <span></span>
         <hr>
@@ -81,7 +81,9 @@
                     <input type="number" id="angleC" placeholder="Angle C" class="angle-input">
                 </div>
 
-                <button class="resultButton" onclick="calcTriangle(numSides.value)">Result</button>
+                <button class="one side resultButton" onclick="calcOneSide(sideA.value, angleB.value, angleC.value)">Result</button>
+                <button class="two side resultButton" onclick="calcTwoSide(sideA.value, sideB.value, angleC.value)">Result</button>
+                <button class="three side resultButton" onclick="calcThreeSide(sideA.value, sideB.value, sideC.value)">Result</button>
 
                 <span id="resultTriangle"></span>
             </section>
