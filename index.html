@@ -21,6 +21,7 @@
             <button class="collapseButton" data-target="fibonacci">Fibonacci</button>
             <button class="collapseButton" data-target="prime">Prime</button>
             <button class="collapseButton" data-target="square">Square</button>
+            <button class="collapseButton" data-target="triangle">Triangle</button>
         </div>
         
         <!-- Content Area -->
@@ -58,8 +59,31 @@
                 </label>
 
                 <button class="resultButton" onclick="calcSquare(numSquare.value)">Result</button>
-                
                 <span id="resultSquare"></span>
+            </section>
+
+            <section class="content" id="triangle">
+                <label for="numSides"> Select an option:
+                    <select id="numSides" default="0" onchange="showTriangleInput(this.value)">
+                        <option value="0" disabled selected>Choose</option>
+                        <option value="1">1 side, 2 angles</option>
+                        <option value="2">2 sides, 1 angle</option>
+                        <option value="3">3 sides</option>
+                    </select>
+                </label>
+
+                <div id="sidesInputContainer">
+                    <input type="number" id="sideA" placeholder="Side A" class="side-input">
+                    <input type="number" id="sideB" placeholder="Side B" class="side-input">
+                    <input type="number" id="sideC" placeholder="Side C" class="side-input">
+                    <input type="number" id="angleA" placeholder="Angle A" class="angle-input">
+                    <input type="number" id="angleB" placeholder="Angle B" class="angle-input">
+                    <input type="number" id="angleC" placeholder="Angle C" class="angle-input">
+                </div>
+
+                <button class="resultButton" onclick="calcTriangle(numSides.value)">Result</button>
+
+                <span id="resultTriangle"></span>
             </section>
         </div>
     </main>
