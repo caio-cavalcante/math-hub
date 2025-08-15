@@ -23,6 +23,7 @@ function calcFactorial(numFatorial) {
     updateContentHeight(spanFactorial);
 }
 
+// TODO: show the fibonacci sequence until the given number
 function calcFibonacci(numFibonacci) {
     cantCalc = lessThanZero(spanFibonacci, numFibonacci);
 
@@ -39,6 +40,8 @@ function calcFibonacci(numFibonacci) {
     updateContentHeight(spanFibonacci);
 }
 
+// TODO: give the position of the prime as $(numPrime)$(suffix(numPrime))
+// maybe consult in a database or have another function giving the nth prime
 function calcPrime(numPrime) {
     cantCalc = lessThanZero(spanPrime, numPrime);
 

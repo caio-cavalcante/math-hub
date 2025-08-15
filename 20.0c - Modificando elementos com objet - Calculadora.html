@@ -1,0 +1,15 @@
+<HTML><HEAD></HEAD><BODY>
+<h1>Calculadora</h1>
+<FORM>
+Forneça uma expressão matemática:
+<INPUT TYPE="text" NAME="expr" SIZE=15 >
+<p>
+<INPUT TYPE="button" VALUE="Calcule" 
+onClick="document.getElementById('resultado').innerHTML = eval(document.forms[0].expr.value)">
+<INPUT TYPE="reset" VALUE="Limpar"> 
+<p>
+Resultado:
+<span id="resultado" style="font-weight: 700">xxx</span>
+</FORM>
+</BODY>
+</HTML>
