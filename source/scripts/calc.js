@@ -1,3 +1,6 @@
+import { getPrimeIndex } from './search.js';
+import { suffix } from './main.js';
+
 const spanFactorial = document.getElementById("resultFactorial");
 const spanFibonacci = document.getElementById("resultFibonacci");
 const spanPrime = document.getElementById("resultPrime");
@@ -5,9 +8,7 @@ const spanSquare = document.getElementById("resultSquare");
 const spanTriangle = document.getElementById("resultTriangle");
 
 function calcFactorial(numFatorial) {
-    cantCalc = lessThanZero(spanFactorial, numFatorial);
-
-    if (cantCalc === true) {
+    if (lessThanZero(spanFactorial, numFatorial) === true) {
         return;
     } else if (numFatorial === 0) {
         spanFactorial.innerHTML = "<br>The factorial of 0 is 1.";
@@ -22,11 +23,9 @@ function calcFactorial(numFatorial) {
     }
 }
 
-// TODO: show the fibonacci sequence until the given number
+// TODO: show the fibonacci sequence until the given number CHECK:
 function calcFibonacci(numFibonacci) {
-    cantCalc = lessThanZero(spanFibonacci, numFibonacci);
-
-    if (cantCalc === true) {
+    if (lessThanZero(spanFibonacci, numFibonacci) === true) {
         return;
     } else {
         let result = [0, 1];
@@ -34,16 +33,21 @@ function calcFibonacci(numFibonacci) {
         for (let i = 2; i <= numFibonacci; i++) {
             result[i] = result[i - 1] + result[i - 2];
         }
-        spanFibonacci.innerHTML = `<br>The ${numFibonacci}${suffix(numFibonacci)} fibonacci is ${result[numFibonacci]}.`;
+
+        // the sequence should not show the 0th element
+        let sequence = result.slice(1).join(", ");
+        if (numFibonacci >= 103) {
+            sequence = "The sequence is too long to display.";
+        }
+
+        spanFibonacci.innerHTML = `<br>The ${numFibonacci}${suffix(numFibonacci)} fibonacci is ${result[numFibonacci]}.<br>${sequence}`;
     }
 }
 
 // TODO: give the position of the prime as $(numPrime)$(suffix(numPrime))
-// maybe consult in a database or have another function giving the nth prime
-function calcPrime(numPrime) {
-    cantCalc = lessThanZero(spanPrime, numPrime);
-
-    if (cantCalc === true) {
+// maybe consult in a database or have another function giving the nth prime CHECK:
+async function calcPrime(numPrime) {
+    if (lessThanZero(spanPrime, numPrime) === true) {
         return;
     } else if (numPrime < 2) {
         spanPrime.innerHTML = `<br>${numPrime} is not a prime number.`;
@@ -57,9 +61,16 @@ function calcPrime(numPrime) {
             }
         }
 
-        const primeDataBase = loadPrimeDB();
-
-        spanPrime.innerHTML = isPrime ? `<br>${numPrime} is the ${primeDataBase.get(numPrime)} prime number.` : `<br>${numPrime} is not a prime number.`;
+        if (isPrime) {
+            const index = await getPrimeIndex(numPrime);
+            if (typeof index === "number") {
+                spanPrime.innerHTML = `<br>${numPrime} is the ${index}${suffix(index)} prime number.`;
+            } else {
+                spanPrime.innerHTML = `<br>${index}`;
+            }
+        } else {
+            spanPrime.innerHTML = `<br>${numPrime} is not a prime number.`;
+        }
     }
 }
 
@@ -85,7 +96,6 @@ function calcSquare(numSquare) {
                             <br>${formatNum(num)}² + 2 * ${formatNum(num)} * ${formatNum(mod)} + ${formatNum(mod)}²
                             <br>${formatNum(term1)} + ${formatNum(term2)} + ${formatNum(term3)}
                             <br>${formatNum(term1 + term2 + term3)}`;
-
 }
 
 function calcOneSide(sideA, angleB, angleC) {
@@ -97,8 +107,7 @@ function calcTwoSide(sideA, sideB, angleC) {
 }
 
 function calcThreeSide(sideA, sideB, sideC) {
-    cantCalc = lessThanZero(spanTriangle, sideA, sideB, sideC);
-    if (cantCalc === true) {
+    if (lessThanZeros(spanTriangle, sideA, sideB, sideC) === true) {
         return;
     }
     
@@ -110,3 +119,11 @@ function calcThreeSide(sideA, sideB, sideC) {
 
     
 }
+
+window.calcFactorial = calcFactorial;
+window.calcFibonacci = calcFibonacci;
+window.calcPrime = calcPrime;
+window.calcSquare = calcSquare;
+window.calcOneSide = calcOneSide;
+window.calcTwoSide = calcTwoSide;
+window.calcThreeSide = calcThreeSide;

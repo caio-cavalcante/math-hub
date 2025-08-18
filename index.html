@@ -16,11 +16,11 @@
 
     <main id="tools">
         <div id="button-container">
-            <button class="collapseButton" data-target="factorial">Factorial</button>
-            <button class="collapseButton" data-target="fibonacci">Fibonacci</button>
-            <button class="collapseButton" data-target="prime">Prime</button>
-            <button class="collapseButton" data-target="square">Square</button>
-            <button class="collapseButton" data-target="triangle">Triangle</button>
+            <button class="collapseButton" data-target="factorial" onclick="collapse()">Factorial</button>
+            <button class="collapseButton" data-target="fibonacci" onclick="collapse()">Fibonacci</button>
+            <button class="collapseButton" data-target="prime" onclick="collapse()">Prime</button>
+            <button class="collapseButton" data-target="square" onclick="collapse()">Square</button>
+            <button class="collapseButton" data-target="triangle" onclick="collapse()">Triangle</button>
         </div>
         
         <div id="content-container">
@@ -89,11 +89,10 @@
     </main>
 
     <footer>
-        <h5>&copy; <span id="year"></span> Caio Cavalcante. All Rights Reserved.</h5>
+        <h5>&copy; <span id="year" onload="year()"></span> Caio Cavalcante. All Rights Reserved.</h5>
     </footer>
 
-    <script src="./source/scripts/main.js"></script>
-    <script src="./source/scripts/calc.js"></script>
-    <script type="module" src="./source/scripts/search.js"></script>
+    <script type="module" src="./source/scripts/main.js"></script>
+    <script type="module" src="./source/scripts/calc.js"></script>
 </body>
 </html>

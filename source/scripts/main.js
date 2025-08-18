@@ -1,9 +1,9 @@
-// variables
-document.getElementById("year").innerHTML = new Date().getFullYear();
-var coll = document.getElementsByClassName("collapseButton");
+function year() {
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+}
 
 // adds suffix to numbers (1st, 2nd, 3rd, etc.)
-const suffix = (n) => {
+export const suffix = (n) => {
     if (n % 100 >= 11 && n % 100 <= 13) return "th";
     switch (n % 10) {
     case 1: return "st";
@@ -21,9 +21,9 @@ function lessThanZero(span, num) {
     return false;
 }
 
-function lessThanZero(span, num1, num2, num3) {
+function lessThanZeros(span, num1, num2, num3) {
     if (num1 < 0 || num1 === "" || num2 < 0 || num2 === "" || num3 < 0 || num3 === "") {
-        span.innerHTML = "<br>Please enter a positive number.";
+        span.innerHTML = "<br>Please enter positive numbers.";
         return true;
     }
     return false;
@@ -82,26 +82,37 @@ function showTriangleInput(numSides) {
     }
 }
 
-// collapsible sections - new behavior for single section visibility
-for (let i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-        const targetId = this.getAttribute('data-target');
-        const targetContent = document.getElementById(targetId);
+function collapse() {
+    var coll = document.getElementsByClassName("collapseButton");
+    
+    // collapsible sections - new behavior for single section visibility
+    for (let i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            const targetId = this.getAttribute('data-target');
+            const targetContent = document.getElementById(targetId);
 
-        const isActive = this.classList.contains('active');
+            const isActive = this.classList.contains('active');
 
-        for (let j = 0; j < coll.length; j++) {
-            coll[j].classList.remove('active');
-        }
+            for (let j = 0; j < coll.length; j++) {
+                coll[j].classList.remove('active');
+            }
 
-        const allContent = document.getElementsByClassName('content');
-        for (let k = 0; k < allContent.length; k++) {
-            allContent[k].classList.remove('show');
-        }
+            const allContent = document.getElementsByClassName('content');
+            for (let k = 0; k < allContent.length; k++) {
+                allContent[k].classList.remove('show');
+            }
 
-        if (!isActive && targetContent) {
-            targetContent.classList.add('show');
-            this.classList.add('active');
-        }
-    });
+            if (!isActive && targetContent) {
+                targetContent.classList.add('show');
+                this.classList.add('active');
+            }
+        });
+    }
 }
+
+year();
+window.lessThanZero = lessThanZero;
+window.lessThanZeros = lessThanZeros;
+window.checkTriangleExistence = checkTriangleExistence;
+window.showTriangleInput = showTriangleInput;
+window.collapse = collapse;
