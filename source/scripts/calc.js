@@ -20,7 +20,6 @@ function calcFactorial(numFatorial) {
 
         spanFactorial.innerHTML = `<br>The factorial of ${numFatorial} is ${result}.`;
     }
-    updateContentHeight(spanFactorial);
 }
 
 // TODO: show the fibonacci sequence until the given number
@@ -37,7 +36,6 @@ function calcFibonacci(numFibonacci) {
         }
         spanFibonacci.innerHTML = `<br>The ${numFibonacci}${suffix(numFibonacci)} fibonacci is ${result[numFibonacci]}.`;
     }
-    updateContentHeight(spanFibonacci);
 }
 
 // TODO: give the position of the prime as $(numPrime)$(suffix(numPrime))
@@ -59,9 +57,10 @@ function calcPrime(numPrime) {
             }
         }
 
-        spanPrime.innerHTML = isPrime ? `<br>${numPrime} is a prime number.` : `<br>${numPrime} is not a prime number.`;
+        const primeDataBase = loadPrimeDB();
+
+        spanPrime.innerHTML = isPrime ? `<br>${numPrime} is the ${primeDataBase.get(numPrime)} prime number.` : `<br>${numPrime} is not a prime number.`;
     }
-    updateContentHeight(spanPrime);
 }
 
 // TODO: if the number has more than 3 digits, the result will be too long
@@ -69,7 +68,6 @@ function calcPrime(numPrime) {
 function calcSquare(numSquare) {
     if (numSquare === "") {
         spanSquare.innerHTML = "<br>Please enter a number.";
-        updateContentHeight(spanSquare);
         return;
     }
 
@@ -88,7 +86,6 @@ function calcSquare(numSquare) {
                             <br>${formatNum(term1)} + ${formatNum(term2)} + ${formatNum(term3)}
                             <br>${formatNum(term1 + term2 + term3)}`;
 
-    updateContentHeight(spanSquare);
 }
 
 function calcOneSide(sideA, angleB, angleC) {

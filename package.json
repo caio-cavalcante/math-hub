@@ -1,0 +1,23 @@
+{
+  "name": "math-hub",
+  "version": "1.0.0",
+  "description": "Website with fun math functions",
+  "homepage": "https://github.com/caio-cavalcante/math-hub#readme",
+  "bugs": {
+    "url": "https://github.com/caio-cavalcante/math-hub/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caio-cavalcante/math-hub.git"
+  },
+  "license": "ISC",
+  "author": "Caio Cavalcante Araújo",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
