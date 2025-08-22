@@ -15,7 +15,7 @@ As of now, there are 4 functional buttons, with 1 being a work in progress.
 - Prime number checker says if a number is prime, and if so, its position as a prime.
     - 37 is the 12th prime number.
 - Square calculator shows the mathematical process of the square of a sum.
-    - ![Example of 37 squared](https://github.com/caio-cavalcante/math-hub/public/blob/main/37squared.png)
+    - ![Example of 37 squared](https://github.com/caio-cavalcante/math-hub/blob/main/public/37squared.png)
 - Triangle calculator will draw a triangle and show it lenghts and angles. (WIP)
 
 ## Instalation
