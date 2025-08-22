@@ -9,7 +9,8 @@
 <body>
     <header>
         <h1> Caio's MathHub!</h1>
-        <h3>Fun math tools to help you.</h3>
+        <h2>Fun math tools to help you.</h2>
+        <h3>Click in any button to start!</h3>
         <span></span>
         <hr>
     </header>
@@ -25,8 +26,8 @@
         
         <div id="content-container">
             <section class="content" id="factorial">
-                <label for="numFactorial"> Type the number:
-                    <input type="number" id="numFactorial">
+                <label for="numFactorial"> What number do you want to calculate the factorial of?:
+                    <input type="number" id="numFactorial" max="10000">
                 </label>
                 
                 <button class="resultButton" onclick="calcFactorial(numFactorial.value)">Result</button>
@@ -34,8 +35,8 @@
             </section>
             
             <section class="content" id="fibonacci">
-                <label for="numFibonacci"> Type the number:
-                    <input type="number" id="numFibonacci">
+                <label for="numFibonacci"> What number of the Fibonacci sequence do you want?:
+                    <input type="number" id="numFibonacci" max="10000">
                 </label>
                 
                 <button class="resultButton" onclick="calcFibonacci(numFibonacci.value)">Result</button>
@@ -43,8 +44,8 @@
             </section>
 
             <section class="content" id="prime">
-                <label for="numPrime"> Type the number:
-                    <input type="number" id="numPrime">
+                <label for="numPrime"> What number do you want to check if it's prime?:
+                    <input type="number" id="numPrime"  max="1000000">
                 </label>
                 
                 <button class="resultButton" onclick="calcPrime(numPrime.value)">Result</button>
@@ -52,8 +53,8 @@
             </section>
 
             <section class="content" id="square">
-                <label for="numSquare"> Type the number:
-                    <input type="number" id="numSquare">
+                <label for="numSquare"> What number do you want to calculate the square of?:
+                    <input type="number" id="numSquare"  min="-99" max="99">
                 </label>
 
                 <button class="resultButton" onclick="calcSquare(numSquare.value)">Result</button>
@@ -61,7 +62,7 @@
             </section>
 
             <section class="content" id="triangle">
-                <label for="numSides"> Select an option:
+                <label for="numSides"> Select an option to calculate the triangle:
                     <select id="numSides" default="0" onchange="showTriangleInput(this.value)">
                         <option value="0" disabled selected>Choose</option>
                         <option value="1">1 side, 2 angles</option>

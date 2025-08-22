@@ -5,7 +5,10 @@
 }
 
 .dark-theme {
-    /* TBD */
+    /* WIP */
+    --text-color: #eee;
+    --background-color: #333;
+    --border-color: #ddd;
 }
 
 body {

@@ -7,6 +7,7 @@ const spanPrime = document.getElementById("resultPrime");
 const spanSquare = document.getElementById("resultSquare");
 const spanTriangle = document.getElementById("resultTriangle");
 
+// TODO: after 171, every one is infinity
 function calcFactorial(numFatorial) {
     if (lessThanZero(spanFactorial, numFatorial) === true) {
         return;
@@ -24,6 +25,7 @@ function calcFactorial(numFatorial) {
 }
 
 // TODO: show the fibonacci sequence until the given number CHECK:
+// TODO: limit in 1477 to infinity
 function calcFibonacci(numFibonacci) {
     if (lessThanZero(spanFibonacci, numFibonacci) === true) {
         return;
@@ -45,7 +47,7 @@ function calcFibonacci(numFibonacci) {
 }
 
 // TODO: give the position of the prime as $(numPrime)$(suffix(numPrime))
-// maybe consult in a database or have another function giving the nth prime CHECK:
+// maybe consult in a database or have another function giving the nth prime
 async function calcPrime(numPrime) {
     if (lessThanZero(spanPrime, numPrime) === true) {
         return;
@@ -93,17 +95,18 @@ function calcSquare(numSquare) {
 
     spanSquare.innerHTML = `<br>${formatNum(numSquare)}²
                             <br>(${formatNum(num)} + ${formatNum(mod)})²
-                            <br>${formatNum(num)}² + 2 * ${formatNum(num)} * ${formatNum(mod)} + ${formatNum(mod)}²
+                            <br>(${formatNum(num)} + ${formatNum(mod)})*(${formatNum(num)} + ${formatNum(mod)})
+                            <br>${formatNum(num)}² + ${formatNum(num)}*${formatNum(mod)} + ${formatNum(mod)}*${formatNum(num)} + ${formatNum(mod)}²
                             <br>${formatNum(term1)} + ${formatNum(term2)} + ${formatNum(term3)}
                             <br>${formatNum(term1 + term2 + term3)}`;
 }
 
 function calcOneSide(sideA, angleB, angleC) {
-
+    spanTriangle.innerHTML = "<br>This function is still a work in progress.";
 }
 
 function calcTwoSide(sideA, sideB, angleC) {
-
+    spanTriangle.innerHTML = "<br>This function is still a work in progress.";
 }
 
 function calcThreeSide(sideA, sideB, sideC) {
@@ -117,7 +120,7 @@ function calcThreeSide(sideA, sideB, sideC) {
         return;
     }
 
-    
+    spanTriangle.innerHTML = "<br>This function is still a work in progress.";
 }
 
 window.calcFactorial = calcFactorial;

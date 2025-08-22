@@ -82,35 +82,39 @@ function showTriangleInput(numSides) {
     }
 }
 
+// TODO: every button is collapsing first to open when click again, fix to substitute
 function collapse() {
-    var coll = document.getElementsByClassName("collapseButton");
-    
-    // collapsible sections - new behavior for single section visibility
-    for (let i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            const targetId = this.getAttribute('data-target');
-            const targetContent = document.getElementById(targetId);
+    var collBtn = document.getElementsByClassName("collapseButton");
 
-            const isActive = this.classList.contains('active');
+    for (let i = 0; i < collBtn.length; i++) {
+        if (!collBtn[i].hasCollapseListener) {
+            collBtn[i].addEventListener("click", function() {
+                const targetId = this.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
 
-            for (let j = 0; j < coll.length; j++) {
-                coll[j].classList.remove('active');
-            }
+                const isActive = this.classList.contains('active');
 
-            const allContent = document.getElementsByClassName('content');
-            for (let k = 0; k < allContent.length; k++) {
-                allContent[k].classList.remove('show');
-            }
+                for (let j = 0; j < collBtn.length; j++) {
+                    collBtn[j].classList.remove('active');
+                }
 
-            if (!isActive && targetContent) {
-                targetContent.classList.add('show');
-                this.classList.add('active');
-            }
-        });
+                const allContent = document.getElementsByClassName('content');
+                for (let k = 0; k < allContent.length; k++) {
+                    allContent[k].classList.remove('show');
+                }
+
+                if (!isActive && targetContent) {
+                    targetContent.classList.add('show');
+                    this.classList.add('active');
+                }
+            });
+            collBtn[i].hasCollapseListener = true;
+        }
     }
 }
 
 year();
+collapse();
 window.lessThanZero = lessThanZero;
 window.lessThanZeros = lessThanZeros;
 window.checkTriangleExistence = checkTriangleExistence;
